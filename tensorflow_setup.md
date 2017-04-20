@@ -34,5 +34,5 @@
 </br>
 </br>
 </br>
-## Pip Install
-## Installing From Source
+##Pip Install
+##Installing From Source
