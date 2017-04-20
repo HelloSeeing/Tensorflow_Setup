@@ -4,9 +4,9 @@ python需要是2.7或者3.3+
 
 GPU在cuda==8.0, cudnn==5.1的情况下效果最好，其他情况需要从源码安装
 ## 安装方式
-* [使用pip安装](#pip-installation)
-* [从源码安装](#installing-from-source)
-## Pip Installation
+* [使用pip安装](#使用pip安装)
+* [从源码安装](#从源码安装)
+## 使用pip安装
 * 如果要用cpu版本的tensorflow,可以在终端中输入
 ```bash
 $ pip install tensorflow
@@ -16,4 +16,4 @@ $ pip install tensorflow
 $ pip install tensorflow-gpu
 ```
 
-## Installing From Source
+## 从源码安装
