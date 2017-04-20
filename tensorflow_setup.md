@@ -175,7 +175,29 @@ Configuration finished
 
 [Default is: "3.5,5.2"]: 3.0
 
-This creates a canonical set of symbolic links to the Cuda libraries on your
-system.  Every time you change the Cuda library paths you need to run this step
-again before you invoke the bazel build command. For the cuDNN libraries, use
-'7.0' for R3, and '4.0.7' for R4.
+如果以后你要重新安装Tensorflow的话，要先运行```bazel clean```，再运行这个```configure```
+
+### 构建pip的安装包并安装
+上一步完成之后，还要构建pip的安装包
+
+注意到如果使用默认参数的话这个过程会占用巨量的内存，如果你希望限制内存使用量的话你可以使用`--local_resources 2048,.5,1.0`参数。
+
+```bash
+$ bazel build -c opt //tensorflow/tools/pip_package:build_pip_package
+
+# To build with support for CUDA:
+$ bazel build -c opt --config=cuda //tensorflow/tools/pip_package:build_pip_package
+
+$ bazel-bin/tensorflow/tools/pip_package/build_pip_package /tmp/tensorflow_pkg
+
+# The name of the .whl file will depend on your platform.
+$ sudo pip install /tmp/tensorflow_pkg/tensorflow-1.0.1-py2-none-any.whl
+```
+
+## 优化CPU
+
+为了尽可能的和最多的电脑适配, TensorFlow默认使用SSE4.1 SIMD instructions在x86机器上。然而现代大部分的电脑支持更高级的instructions, 因此如果你希望只在你电脑上运行的话,可以通过给```bazel```命令添加`--copt=-march=native`参数:
+
+``` bash
+$ bazel build --copt=-march=native -c opt //tensorflow/tools/pip_package:build_pip_package
+```
