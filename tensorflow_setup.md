@@ -201,3 +201,19 @@ $ sudo pip install /tmp/tensorflow_pkg/tensorflow-1.0.1-py2-none-any.whl
 ``` bash
 $ bazel build --copt=-march=native -c opt //tensorflow/tools/pip_package:build_pip_package
 ```
+
+### 测试你的Tensorflow是否安装成功
+```bash
+$ python
+...
+>>> import tensorflow as tf
+>>> hello = tf.constant('Hello, TensorFlow!')
+>>> sess = tf.Session()
+>>> print(sess.run(hello))
+Hello, TensorFlow!
+>>> a = tf.constant(10)
+>>> b = tf.constant(32)
+>>> print(sess.run(a + b))
+42
+>>>
+```
