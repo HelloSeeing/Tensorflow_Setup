@@ -141,3 +141,41 @@ sudo chmod a+r /usr/local/cuda/include/cudnn.h /usr/local/cuda/lib64/libcudnn*
 ```bash
 $ sudo apt-get install libcupti-dev
 ```
+
+### 构建Tensorflow
+在下载Tensorflow的根目录下运行`configure`。程序会询问你是否要Tensorflow支持这个，支持那个，支持则输入y，不支持输入n。在这里我们只考虑GPU的安装支持，如果你想要安装GPU版本的话，在```Do you wish to build Tensorflow with GPU support ? [y/N]```后面输入```y```即可。后面会要求你输入你系统里安装的cuda和cudnn版本，如果你安装了多个版本的cuda或者cudnn，那么就得输入特定的版本，而不要去使用默认值。
+
+例如你可以这样选择:
+
+```bash
+$ ./configure
+Please specify the location of python. [Default is /usr/bin/python]:
+Do you wish to build TensorFlow with Google Cloud Platform support? [y/N] N
+No Google Cloud Platform support will be enabled for TensorFlow
+Do you wish to build TensorFlow with GPU support? [y/N] y
+Do you wish to build TensorFlow with OpenCL support? [y/N] N
+GPU support will be enabled for TensorFlow
+Please specify which gcc nvcc should use as the host compiler. [Default is /usr/bin/gcc]:
+Please specify the Cuda SDK version you want to use, e.g. 7.0. [Leave empty to use system default]: 8.0
+Please specify the location where CUDA 8.0 toolkit is installed. Refer to README.md for more details. [Default is /usr/local/cuda]:
+Please specify the cuDNN version you want to use. [Leave empty to use system default]: 5
+Please specify the location where cuDNN 5 library is installed. Refer to README.md for more details. [Default is /usr/local/cuda]:
+Please specify a list of comma-separated Cuda compute capabilities you want to build with.
+You can find the compute capability of your device at: https://developer.nvidia.com/cuda-gpus.
+Please note that each additional compute capability significantly increases your build time and binary size.
+
+Setting up Cuda include
+Setting up Cuda lib
+Setting up Cuda bin
+Setting up Cuda nvvm
+Setting up CUPTI include
+Setting up CUPTI lib64
+Configuration finished
+```
+
+[Default is: "3.5,5.2"]: 3.0
+
+This creates a canonical set of symbolic links to the Cuda libraries on your
+system.  Every time you change the Cuda library paths you need to run this step
+again before you invoke the bazel build command. For the cuDNN libraries, use
+'7.0' for R3, and '4.0.7' for R4.
