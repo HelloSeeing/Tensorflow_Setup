@@ -68,3 +68,9 @@ $ sudo pip3 install --upgrade $TF_BINARY_URL
 注意: 如果你从TensorFlow < 0.7.1 升级到新版本1.0，你应当卸载上一个版本*以及protobuf* 通过`pip uninstall`首先确定你使用了更新过的protobuf依赖项来执行一个干净的安装
 
 ## 从源码安装
+从源码安装其实是根据自己电脑的配置创建一个pip的wheel文件，再根据```pip install```的方式进行安装，不再赘述
+### 从github上下载tensorflow的源码
+```bash
+$ git clone https://github.com/tensorflow/tensorflow
+```
+上面的命令只能下载最新版本的tensorflow，也就是1.1，如果你想要安装一个特定版本的branch（比如说1.0或者release的），可以给```git clone```传入```-b <branchname>```参数（这里我们想要装1.0的话就应该是```-b <r1.0>）
