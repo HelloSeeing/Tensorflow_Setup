@@ -2,5 +2,37 @@
 ## 安装方式
 * [使用pip安装](#pip-installation)
 * [从源码安装](#installing-from-source)
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
 ## Pip Install
 ## Installing From Source
