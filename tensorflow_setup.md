@@ -88,7 +88,7 @@ $ ./PATH_TO_INSTALL.SH --user
 
 最后记得将`bazel`加入你的系统环境目录中去，这个在上面的安装网页中也有写到
 
-#### Install other dependencies
+#### 安装其他依赖项
 
 ```bash
 # For Python 2.7:
