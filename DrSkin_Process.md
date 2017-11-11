@@ -203,3 +203,5 @@ possible_cond(yes)->possible_op->resh_output
 possible_cond(no)->unknown_op->resh_output
 resh_output->resh_end
 ```
+
+![img](/home/dxh/Old/TensorFlow-Tutorials-master/myPros/git_prog/tf_setup/microscopy.png)
